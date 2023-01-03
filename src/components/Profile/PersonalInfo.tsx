@@ -7,18 +7,18 @@ export const PersonalInfo = ({ className }: { className?: string }) => {
     <div className={clsx("", className)}>
       <div className="flex gap-4">
         <label htmlFor="firstName" className="flex flex-col gap-2 w-full mb-10">
-          <span >First name</span>
+          <span >*First name</span>
           <Input name="firstName" type="text" className="rounded-full" />
         </label>
 
         <label htmlFor="lastName" className="flex flex-col gap-2 w-full mb-10">
-          <span >Last name</span>
+          <span >*Last name</span>
           <Input name="lastName" type="text" className="rounded-full" />
         </label>
       </div>
 
       <div className="mb-10 gap-2 flex flex-col items-center">
-        <p>Gender</p>
+        <p>*Gender</p>
         <fieldset className="flex gap-5">
           <label className="flex gap-1 items-center">
             <Input name="gender" type="radio" value="male" />
@@ -38,7 +38,7 @@ export const PersonalInfo = ({ className }: { className?: string }) => {
       </div>
 
       <label htmlFor="age" className="flex flex-col gap-2 mb-10">
-        <span>Age</span>
+        <span>*Age</span>
         <Input name="age" type="number" min="16" className="rounded-full" />
       </label>
     </div>
