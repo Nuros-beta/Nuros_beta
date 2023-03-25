@@ -21,9 +21,9 @@ export function Input({ name, ...rest }: InputProps) {
 }
 
 export function TextArea({ name, ...rest }: TextAreaProps) {
-	const { register } = useFormContext()
+	const { register, formState: {errors} } = useFormContext()
 
-	return <textarea {...register(name)} {...rest} />;
+	return <><textarea {...register(name)} {...rest} />{errors?.[name] && <p>{`${name} is required.`}</p>}</>;
 }
 
 export function Select({ options, name, ...rest }: SelectProps) {

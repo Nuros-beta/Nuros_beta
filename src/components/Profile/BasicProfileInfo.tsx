@@ -1,29 +1,12 @@
-import { Input, Select } from "components/common/Input";
-
-const specialties = [
-	"Clinical Health psychology",
-	"Clinical Neuropsychology",
-	"Psychoanalytic and psychodynamic psychology",
-	"School psychology",
-	"Clinical psychology",
-	"Clinical child and adolescent psychology",
-	"Business psychology",
-	"Behavioral and cognitive psychology",
-	"Social psychology",
-	"Couple and family psychology",
-	"Geropsychology",
-	"Habitational psychology",
-	"Group psychology",
-	"Clinical psychopharmacology",
-	"Other",
-]
+import { Input, Select } from "@/components/common/Input";
+import { specialties } from "@/constants";
 
 export const BasicProfileInfo = () => {
 	return (
 		<>
 			<label htmlFor="specialty" className="flex flex-col gap-2 w-full mb-10">
 				<span >*Specialty</span>
-				<Select name="specialty" className="rounded-full" options={specialties} />
+				<Select name="specialty" className="rounded-full" options={specialties as unknown as string[]} />
 			</label>
 
 			<label htmlFor="experienceYears" className="flex flex-col gap-2 w-full mb-10">
