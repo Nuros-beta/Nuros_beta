@@ -11,8 +11,8 @@ export default function App({ Component, pageProps }: AppProps) {
   if (Component?.auth) {
     return (
       <FirebaseProvider>
+        <Toaster />
         <RootProvider>
-          <Toaster />
           <AuthGuard>
             {
               Component?.useVideo ?
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
                   <VideoProvider>
                     <Component {...pageProps} />
                   </VideoProvider>
-              ) : <Component {...pageProps} />
+                ) : <Component {...pageProps} />
             }
           </AuthGuard>
         </RootProvider>
@@ -32,14 +32,21 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
       <FirebaseProvider>
         <Toaster />
-        <NoAuthGuard>
-          <Component {...pageProps} />
-        </NoAuthGuard>
+        <RootProvider>
+          <NoAuthGuard>
+            <Component {...pageProps} />
+          </NoAuthGuard>
+        </RootProvider>
       </FirebaseProvider>
     )
   }
 
   return (
-    <Component {...pageProps} />
+    <FirebaseProvider>
+      <Toaster />
+      <RootProvider>
+        <Component {...pageProps} />
+      </RootProvider>
+    </FirebaseProvider>
   );
 }

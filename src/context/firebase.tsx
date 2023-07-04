@@ -190,7 +190,6 @@ function FirebaseProvider({ children }: FirebaseProviderPropsType) {
  * Provides access to auth state and functions.
  */
 function useFirebase() {
-  console.log("in here")
   const context = useContext(FirebaseContext);
 
   if (context === undefined) {
